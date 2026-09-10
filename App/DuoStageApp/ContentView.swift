@@ -6,7 +6,7 @@ struct ContentView: View {
     @State private var hingeAngle = 90.0
     @State private var revealProgress = 0.0
 
-    private let prompts = StagePrompt.launchSamples
+    private let prompts = StagePrompt.launchPack
     private let timeline = RevealTimeline()
 
     private var prompt: StagePrompt { prompts[promptIndex] }
@@ -88,13 +88,40 @@ struct ContentView: View {
     private var controls: some View {
         switch phase {
         case .setup:
-            Button("Start stage") {
-                phase = .secret
-                hingeAngle = 90
-                revealProgress = 0
+            VStack(spacing: 14) {
+                HStack {
+                    Button {
+                        promptIndex = (promptIndex - 1 + prompts.count) % prompts.count
+                    } label: {
+                        Image(systemName: "chevron.left")
+                    }
+                    .buttonStyle(.bordered)
+
+                    VStack(spacing: 2) {
+                        Text(prompt.category.uppercased())
+                            .font(.caption2.bold())
+                            .foregroundStyle(.secondary)
+                        Text("\(promptIndex + 1) / \(prompts.count)")
+                            .font(.caption.monospacedDigit())
+                    }
+                    .frame(maxWidth: .infinity)
+
+                    Button {
+                        promptIndex = (promptIndex + 1) % prompts.count
+                    } label: {
+                        Image(systemName: "chevron.right")
+                    }
+                    .buttonStyle(.bordered)
+                }
+
+                Button("Start stage") {
+                    phase = .secret
+                    hingeAngle = 90
+                    revealProgress = 0
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
             }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
 
         case .secret:
             VStack(spacing: 12) {
