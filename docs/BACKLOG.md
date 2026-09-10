@@ -11,7 +11,7 @@
 - [ ] real-device hero demo
 
 ## P1
-- [ ] 30 curated prompts in-app
+- [x] 30 curated prompts in-app
 - [ ] category picker
 - [ ] countdown audio/haptics
 - [ ] hinge reveal sound

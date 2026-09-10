@@ -5,6 +5,7 @@ struct ContentView: View {
     @State private var phase: StagePhase = .setup
     @State private var hingeAngle = 90.0
     @State private var revealProgress = 0.0
+    @State private var countdownValue = 3
 
     private let prompts = StagePrompt.launchPack
     private let timeline = RevealTimeline()
@@ -129,15 +130,31 @@ struct ContentView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
-                Button("3 · 2 · 1") {
-                    phase = .recording
+                Button("Start countdown") {
+                    phase = .countdown
+                    countdownValue = 3
+                    Task { @MainActor in
+                        for value in stride(from: 3, through: 1, by: -1) {
+                            countdownValue = value
+                            try? await Task.sleep(for: .seconds(1))
+                        }
+                        guard phase == .countdown else { return }
+                        phase = .recording
+                    }
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
             }
 
         case .countdown:
-            Text("GET READY").font(.title.bold())
+            VStack(spacing: 8) {
+                Text("GET READY")
+                    .font(.caption.bold())
+                    .foregroundStyle(.secondary)
+                Text("\(countdownValue)")
+                    .font(.system(size: 72, weight: .black, design: .rounded))
+                    .contentTransition(.numericText())
+            }
 
         case .recording, .revealing:
             VStack(spacing: 8) {
