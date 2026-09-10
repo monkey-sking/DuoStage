@@ -2,35 +2,44 @@ import Foundation
 
 public extension StagePrompt {
     static let launchPack: [StagePrompt] = [
-        .init(category: "Couple", title: "First impression", sideA: "What color was B wearing when you first met?", sideB: "What color was A wearing when you first met?", revealLabel: "Same memory?"),
-        .init(category: "Couple", title: "First move", sideA: "Who liked the other person first?", sideB: "Who liked the other person first?", revealLabel: "Who fell first?"),
-        .init(category: "Couple", title: "I love you", sideA: "Who said ‘I love you’ first?", sideB: "Who said ‘I love you’ first?", revealLabel: "Same story?"),
-        .init(category: "Couple", title: "After an argument", sideA: "Who apologizes first after a fight?", sideB: "Who apologizes first after a fight?", revealLabel: "Peace maker"),
-        .init(category: "Couple", title: "Food delivery", sideA: "Who spends more on food delivery?", sideB: "Who spends more on food delivery?", revealLabel: "Receipts please"),
-        .init(category: "Couple", title: "Next trip", sideA: "Pick the trip B secretly wants next.", sideB: "Pick the trip A secretly wants next.", revealLabel: "Travel sync"),
-        .init(category: "Friends", title: "2 AM text", sideA: "Who is most likely to text an ex at 2 AM?", sideB: "Who is most likely to text an ex at 2 AM?", revealLabel: "Expose them"),
-        .init(category: "Friends", title: "No phone", sideA: "Who would survive longest with no phone?", sideB: "Who would survive longest with no phone?", revealLabel: "Offline winner"),
-        .init(category: "Friends", title: "Secret leak", sideA: "Who would accidentally leak a secret first?", sideB: "Who would accidentally leak a secret first?", revealLabel: "Trust issues"),
-        .init(category: "Friends", title: "Future famous", sideA: "Who is most likely to become famous?", sideB: "Who is most likely to become famous?", revealLabel: "Main character"),
-        .init(category: "Friends", title: "Five minutes away", sideA: "Who always says ‘5 minutes away’ while still at home?", sideB: "Who always says ‘5 minutes away’ while still at home?", revealLabel: "Caught"),
-        .init(category: "Friends", title: "Reality show", sideA: "Who would win a reality show?", sideB: "Who would win a reality show?", revealLabel: "Winner energy"),
-        .init(category: "Family", title: "Mom’s favorite", sideA: "What is Mom’s favorite food?", sideB: "What does your child think your favorite food is?", revealLabel: "Family sync"),
-        .init(category: "Family", title: "Draw Mom", sideA: "Draw Mom in 10 seconds.", sideB: "Draw yourself in 10 seconds.", revealLabel: "Portrait reveal"),
-        .init(category: "Family", title: "Dad says", sideA: "What does Dad say most often?", sideB: "What does your child think you say most often?", revealLabel: "Catchphrase"),
-        .init(category: "Family", title: "Wake-up battle", sideA: "Who is hardest to wake up?", sideB: "Who is hardest to wake up?", revealLabel: "Morning truth"),
-        .init(category: "Family", title: "Snack thief", sideA: "Pick the snack B would steal first.", sideB: "Pick the snack A would steal first.", revealLabel: "Snack sync"),
-        .init(category: "Family", title: "Next family trip", sideA: "Who should choose the next family trip?", sideB: "Who should choose the next family trip?", revealLabel: "Trip boss"),
-        .init(category: "Stranger", title: "Outfit guess", sideA: "Guess which outfit B would choose.", sideB: "Guess which outfit A would choose.", revealLabel: "Style read"),
-        .init(category: "Stranger", title: "Emoji read", sideA: "Guess B’s most-used emoji.", sideB: "Guess A’s most-used emoji.", revealLabel: "Emoji reveal"),
-        .init(category: "Stranger", title: "Music vibe", sideA: "Pick the music genre that fits B’s vibe.", sideB: "Pick the music genre that fits A’s vibe.", revealLabel: "Vibe check"),
-        .init(category: "Stranger", title: "Coffee or tea", sideA: "Guess: coffee or tea?", sideB: "Guess: coffee or tea?", revealLabel: "Quick read"),
-        .init(category: "Stranger", title: "Morning or night", sideA: "Guess whether B is a morning person or night owl.", sideB: "Guess whether A is a morning person or night owl.", revealLabel: "Clocked"),
-        .init(category: "Stranger", title: "Zombie movie", sideA: "Who would survive longer in a zombie movie?", sideB: "Who would survive longer in a zombie movie?", revealLabel: "Survivor"),
-        .init(category: "Creator", title: "Two-piece look", sideA: "Secretly choose the top half of the outfit.", sideB: "Secretly choose the bottom half of the outfit.", revealLabel: "One look?"),
-        .init(category: "Creator", title: "Main-character accessory", sideA: "Choose B’s main-character accessory.", sideB: "Choose A’s main-character accessory.", revealLabel: "Styled"),
-        .init(category: "Creator", title: "Post or delete", sideA: "Pick the look B would post.", sideB: "Pick the look A would post.", revealLabel: "Post it?"),
-        .init(category: "Creator", title: "Favorite color", sideA: "Guess B’s favorite color without speaking.", sideB: "Guess A’s favorite color without speaking.", revealLabel: "Color sync"),
-        .init(category: "Creator", title: "Build one outfit", sideA: "Pick one hidden item for the final outfit.", sideB: "Pick one hidden item for the final outfit.", revealLabel: "Does it work?"),
-        .init(category: "Creator", title: "Style era", sideA: "Pick a style era for B.", sideB: "Pick a style era for A.", revealLabel: "Era match")
+        // Couple — relationship boundaries create immediate disagreement and comment hooks.
+        .init(category: "Couple", title: "Live location", sideA: "Should serious couples share their location 24/7?", sideB: "Should serious couples share their location 24/7?", revealLabel: "Trust or control?"),
+        .init(category: "Couple", title: "Phone privacy", sideA: "Should partners be allowed to look through each other’s phones?", sideB: "Should partners be allowed to look through each other’s phones?", revealLabel: "Privacy vs transparency"),
+        .init(category: "Couple", title: "Friends with an ex", sideA: "Can you stay close friends with an ex in a serious relationship?", sideB: "Can you stay close friends with an ex in a serious relationship?", revealLabel: "Healthy or messy?"),
+        .init(category: "Couple", title: "Thirst-trap likes", sideA: "Is repeatedly liking thirst traps a relationship problem?", sideB: "Is repeatedly liking thirst traps a relationship problem?", revealLabel: "Harmless or disrespectful?"),
+        .init(category: "Couple", title: "Who pays more", sideA: "If one partner earns 3× more, should they pay more than 50% of shared costs?", sideB: "If one partner earns 3× more, should they pay more than 50% of shared costs?", revealLabel: "Equal or fair?"),
+        .init(category: "Couple", title: "Post the relationship", sideA: "If your partner never posts you, is that a red flag?", sideB: "If your partner never posts you, is that a red flag?", revealLabel: "Private or hidden?"),
+
+        // Friends — loyalty, money and social status create strong group reactions.
+        .init(category: "Friends", title: "Friend’s ex", sideA: "Is dating a friend’s ex ever acceptable?", sideB: "Is dating a friend’s ex ever acceptable?", revealLabel: "Fair game?"),
+        .init(category: "Friends", title: "Better plans", sideA: "Is it ever okay to cancel plans because a better opportunity came up?", sideB: "Is it ever okay to cancel plans because a better opportunity came up?", revealLabel: "Upgrade or betrayal?"),
+        .init(category: "Friends", title: "Group-chat leak", sideA: "Could you forgive a friend who leaked the private group chat?", sideB: "Could you forgive a friend who leaked the private group chat?", revealLabel: "Trust reset?"),
+        .init(category: "Friends", title: "Relationship vanish", sideA: "Who is more likely to disappear from the friend group after getting into a relationship?", sideB: "Who is more likely to disappear from the friend group after getting into a relationship?", revealLabel: "We all know one"),
+        .init(category: "Friends", title: "Loan a month’s rent", sideA: "Would you lend a close friend one month’s rent with no written agreement?", sideB: "Would you lend a close friend one month’s rent with no written agreement?", revealLabel: "Friendship vs money"),
+        .init(category: "Friends", title: "Unasked truth", sideA: "Should a real friend tell you your partner is bad for you even if you never asked?", sideB: "Should a real friend tell you your partner is bad for you even if you never asked?", revealLabel: "Honest or intrusive?"),
+
+        // Family — familiar parenting debates that invite viewers to take sides without targeting a child.
+        .init(category: "Family", title: "Post the kids", sideA: "Should parents ask their kids before posting them online?", sideB: "Should parents ask their kids before posting them online?", revealLabel: "Memory or privacy?"),
+        .init(category: "Family", title: "Check the phone", sideA: "Should parents be allowed to check a teenager’s phone without asking?", sideB: "Should parents be allowed to check a teenager’s phone without asking?", revealLabel: "Safety or privacy?"),
+        .init(category: "Family", title: "Allowance", sideA: "Should allowance be earned through chores?", sideB: "Should allowance be earned through chores?", revealLabel: "Earn it?"),
+        .init(category: "Family", title: "Phone punishment", sideA: "Is taking away a phone a fair punishment?", sideB: "Is taking away a phone a fair punishment?", revealLabel: "Fair or too far?"),
+        .init(category: "Family", title: "Paid for grades", sideA: "Should kids be paid for getting good grades?", sideB: "Should kids be paid for getting good grades?", revealLabel: "Motivation or bribery?"),
+        .init(category: "Family", title: "Strict or free", sideA: "Which raises more capable kids: strict rules or more freedom?", sideB: "Which raises more capable kids: strict rules or more freedom?", revealLabel: "Pick a side"),
+
+        // Stranger — social norms work even when the two participants do not know each other.
+        .init(category: "Stranger", title: "Salary on date one", sideA: "Is asking someone’s salary on a first date rude or reasonable?", sideB: "Is asking someone’s salary on a first date rude or reasonable?", revealLabel: "Too soon?"),
+        .init(category: "Stranger", title: "Ghosting", sideA: "Is ghosting ever acceptable after one date?", sideB: "Is ghosting ever acceptable after one date?", revealLabel: "Protect peace or be polite?"),
+        .init(category: "Stranger", title: "No social media", sideA: "No social media: green flag or red flag?", sideB: "No social media: green flag or red flag?", revealLabel: "Suspicious or peaceful?"),
+        .init(category: "Stranger", title: "Before exclusivity", sideA: "Before exclusivity, is dating multiple people at once completely fine?", sideB: "Before exclusivity, is dating multiple people at once completely fine?", revealLabel: "Normal or messy?"),
+        .init(category: "Stranger", title: "Income gap", sideA: "Would a big income gap matter to you in dating?", sideB: "Would a big income gap matter to you in dating?", revealLabel: "Love vs lifestyle"),
+        .init(category: "Stranger", title: "Ten-year gap", sideA: "For two adults, is a 10-year age gap normal or a red flag?", sideB: "For two adults, is a 10-year age gap normal or a red flag?", revealLabel: "Age is just a number?"),
+
+        // Creator — taste, authenticity and AI are naturally commentable on short-form platforms.
+        .init(category: "Creator", title: "AI stylist", sideA: "If AI styles you better than a human stylist, does it matter who made the choice?", sideB: "If AI styles you better than a human stylist, does it matter who made the choice?", revealLabel: "Taste vs tool"),
+        .init(category: "Creator", title: "Designer logos", sideA: "Big designer logos: status or insecurity?", sideB: "Big designer logos: status or insecurity?", revealLabel: "Luxury or flex?"),
+        .init(category: "Creator", title: "Repeat the outfit", sideA: "Repeating the same outfit in multiple posts: confident or lazy?", sideB: "Repeating the same outfit in multiple posts: confident or lazy?", revealLabel: "Repeat it?"),
+        .init(category: "Creator", title: "Designer dupe", sideA: "A designer dupe: smart buy or fake flex?", sideB: "A designer dupe: smart buy or fake flex?", revealLabel: "Value or vanity?"),
+        .init(category: "Creator", title: "Beauty filters", sideA: "Heavy beauty filters: harmless fun or dishonest?", sideB: "Heavy beauty filters: harmless fun or dishonest?", revealLabel: "Edit or deceive?"),
+        .init(category: "Creator", title: "Label AI edits", sideA: "Should creators label AI-enhanced photos every time?", sideB: "Should creators label AI-enhanced photos every time?", revealLabel: "Disclosure required?" )
     ]
 }
