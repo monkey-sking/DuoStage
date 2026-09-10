@@ -1,14 +1,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var permissions = CapturePermissions()
     @State private var promptIndex = 0
+    @State private var selectedCategory = "Couple"
     @State private var phase: StagePhase = .setup
     @State private var hingeAngle = 90.0
     @State private var revealProgress = 0.0
     @State private var countdownValue = 3
 
-    private let prompts = StagePrompt.launchPack
     private let timeline = RevealTimeline()
+
+    private var categories: [String] {
+        StagePrompt.launchPack.reduce(into: [String]()) { result, prompt in
+            if !result.contains(prompt.category) { result.append(prompt.category) }
+        }
+    }
+
+    private var prompts: [StagePrompt] {
+        StagePrompt.launchPack.filter { $0.category == selectedCategory }
+    }
 
     private var prompt: StagePrompt { prompts[promptIndex] }
 
@@ -85,11 +96,39 @@ struct ContentView: View {
         }
     }
 
+    private func startStage() {
+        phase = .secret
+        hingeAngle = 90
+        revealProgress = 0
+    }
+
+    private func startStageButton(title: String) -> some View {
+        Button(title) { startStage() }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+    }
+
     @ViewBuilder
     private var controls: some View {
         switch phase {
         case .setup:
             VStack(spacing: 14) {
+                HStack {
+                    Text("Category")
+                        .font(.caption.bold())
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Picker("Category", selection: $selectedCategory) {
+                        ForEach(categories, id: \.self) { category in
+                            Text(category).tag(category)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .onChange(of: selectedCategory) { _, _ in
+                        promptIndex = 0
+                    }
+                }
+
                 HStack {
                     Button {
                         promptIndex = (promptIndex - 1 + prompts.count) % prompts.count
@@ -115,13 +154,24 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                 }
 
-                Button("Start stage") {
-                    phase = .secret
-                    hingeAngle = 90
-                    revealProgress = 0
+                if permissions.isReady {
+                    startStageButton(title: "Start stage")
+                } else {
+                    Button("Enable camera & microphone") {
+                        Task { await permissions.requestRequiredAccess() }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+
+                    if permissions.isDenied {
+                        Button("Open Settings") { permissions.openSettings() }
+                            .buttonStyle(.bordered)
+                    }
+
+                    Button("Preview without capture") { startStage() }
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                 }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
             }
 
         case .secret:

@@ -12,7 +12,7 @@
 
 ## P1
 - [x] 30 curated prompts in-app
-- [ ] category picker
+- [x] category picker
 - [ ] countdown audio/haptics
 - [ ] hinge reveal sound
 - [ ] share sheet
