@@ -1,0 +1,8 @@
+DerivedData/
+.build/
+.swiftpm/
+.DS_Store
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcuserstate
+App/DuoStage.xcodeproj/

@@ -1,0 +1,26 @@
+name: DuoStage
+options:
+  bundleIdPrefix: com.monkeysking
+  deploymentTarget:
+    iOS: "27.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 0.1.0
+targets:
+  DuoStage:
+    type: application
+    platform: iOS
+    sources:
+      - path: DuoStageApp
+      - path: ../Sources/DuoStageCore
+        group: DuoStageCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.monkeysking.duostage
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_NSCameraUsageDescription: DuoStage records participants' reactions during a stage.
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: DuoStage records audio for reaction videos.
+        TARGETED_DEVICE_FAMILY: "1"
