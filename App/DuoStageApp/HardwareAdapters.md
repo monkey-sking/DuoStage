@@ -1,47 +1,19 @@
-# Duo hardware adapters
+# Hardware adapter validation
 
-The app currently compiles around simulated behavior. Add native adapters as thin bridges after the Duo SDK is available.
+The current prototype uses simulated inputs. No device-specific adapter is
+validated by this repository.
 
-## Hinge adapter
+Earlier drafts called API examples "published" without retaining a verified
+source. Those examples have been removed. Names appearing in older planning
+documents are assumptions, not confirmed SDK contracts.
 
-Apple's published SwiftUI pattern:
+Before adding a native adapter:
 
-```swift
-.onHingeChange { _, context in
-    if let hinge = context.hinge, hinge.status == .partiallyOpen {
-        let angle = hinge.angle
-    }
-}
-```
+1. Retain the official API reference, SDK version and availability annotations.
+2. Translate confirmed input data into the core `HingeSnapshot` model.
+3. Test device availability and lifecycle changes.
+4. Verify concurrent camera inputs/outputs, audio, dropped frames and pressure on
+   actual hardware before claiming simultaneous capture.
+5. Verify a real exported file before claiming video export.
 
-Translate native hinge data into the core `HingeSnapshot` model. Do not use hinge angle to make layout decisions; use layout/region APIs for layout.
-
-## Camera capture accessory
-
-Published shape:
-
-```swift
-CameraView(model: model)
-    .sceneAccessory {
-        CameraCaptureAccessory(isEnabled: $model.isEnabled) {
-            SecretPromptView(model: model)
-        }
-        .onAvailabilityChange { newValue in
-            model.isAvailable = newValue
-        }
-    }
-```
-
-The outer-side presentation must never be the source of truth. The system controls availability.
-
-## MultiCam probe
-
-The first real-device kill test must:
-
-1. discover Duo-specific inner and outer front cameras;
-2. configure both as inputs to one `AVCaptureMultiCamSession`;
-3. verify `canAddInput`/`canAddOutput`;
-4. sustain at least 1080p30 + audio;
-5. log dropped frames, session cost and system pressure.
-
-Discovering both cameras separately does **not** prove they can run together.
+Unit tests of simulated input do not establish hardware or SDK support.
