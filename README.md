@@ -1,5 +1,9 @@
 # DuoStage
 
+<!-- badges:start -->
+[![Stars](https://img.shields.io/github/stars/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/stargazers) [![Forks](https://img.shields.io/github/forks/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/network/members) [![Last commit](https://img.shields.io/github/last-commit/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/commits/main)
+<!-- badges:end -->
+
 A simulated two-person reveal interaction prototype in Swift.
 
 This is a concept, not a released app. It does not establish the existence or
