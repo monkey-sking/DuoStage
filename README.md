@@ -1,7 +1,7 @@
 # DuoStage
 
 <!-- badges:start -->
-[![Stars](https://img.shields.io/github/stars/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/stargazers) [![Forks](https://img.shields.io/github/forks/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/network/members) [![Last commit](https://img.shields.io/github/last-commit/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/commits/main)
+[![Stars](https://img.shields.io/github/stars/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/stargazers) [![Forks](https://img.shields.io/github/forks/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/network/members) [![Last commit](https://img.shields.io/github/last-commit/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/commits/main) [![License](https://img.shields.io/github/license/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/blob/main/LICENSE) [![Language](https://img.shields.io/github/languages/top/monkey-sking/DuoStage?style=flat-square)](https://github.com/monkey-sking/DuoStage/search?l=) [![Tests](https://github.com/monkey-sking/DuoStage/actions/workflows/core-ci.yml/badge.svg?branch=main)](https://github.com/monkey-sking/DuoStage/actions/workflows/core-ci.yml)
 <!-- badges:end -->
 
 A simulated two-person reveal interaction prototype in Swift.
